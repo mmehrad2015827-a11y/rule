@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://cr0gvt6h7f8oh"]
+
+[ext_resource type="Script" uid="uid://bhn6qq32x3r3w" path="res://my.gd" id="1_dv76a"]
+[ext_resource type="Script" uid="uid://cagjlermhim3r" path="res://vs.gd" id="1_od4ev"]
+[ext_resource type="Texture2D" uid="uid://cwjitol4wh3yx" path="res://my.jpg" id="2_od4ev"]
+[ext_resource type="Texture2D" uid="uid://bmn6lskgqqk0a" path="res://icon.svg" id="4_awcal"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4xowi"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_a202f"]
+sky_material = SubResource("ProceduralSkyMaterial_4xowi")
+
+[sub_resource type="Environment" id="Environment_noarx"]
+background_mode = 2
+sky = SubResource("Sky_a202f")
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_8h6mr"]
+size = Vector3(65, 1, 65)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_376v8"]
+size = Vector3(65, 1, 65)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a202f"]
+albedo_texture = ExtResource("2_od4ev")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_noarx"]
+albedo_texture = ExtResource("2_od4ev")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_v0tii"]
+height = 1.8935547
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0tii"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dj16"]
+albedo_texture = ExtResource("4_awcal")
+
+[sub_resource type="BoxMesh" id="BoxMesh_v0tii"]
+size = Vector3(9, 0.9, 9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v0tii"]
+size = Vector3(9, 0.9, 9)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0tii"]
+bg_color = Color(0.8724578, 0.5950343, 0.063205525, 1)
+
+[node name="Node3D" type="Node3D" unique_id=1327071951]
+script = ExtResource("1_od4ev")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=586409506]
+environment = SubResource("Environment_noarx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=553009489]
+transform = Transform3D(0.9033353, -0.105946556, 0.41564488, 0, 0.9690157, 0.24699901, -0.42893514, -0.22312292, 0.87534606, 0, 0, 0)
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1522525554]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D" unique_id=865619371]
+mesh = SubResource("BoxMesh_8h6mr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=542788571]
+shape = SubResource("BoxShape3D_376v8")
+
+[node name="my" type="CharacterBody3D" parent="." unique_id=839634732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007276535, 1.6330503, -0.01709342)
+script = ExtResource("1_dv76a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="my" unique_id=1606001919]
+material_override = SubResource("StandardMaterial3D_a202f")
+material_overlay = SubResource("StandardMaterial3D_noarx")
+mesh = SubResource("CapsuleMesh_v0tii")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="my" unique_id=1456261830]
+shape = SubResource("CapsuleShape3D_v0tii")
+
+[node name="G1" type="Camera3D" parent="my" unique_id=511020823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39161742, 0)
+
+[node name="G3" type="Camera3D" parent="my" unique_id=484439031]
+transform = Transform3D(1, 0, 0, 0, 0.89983505, 0.43623033, 0, -0.43623033, 0.89983505, 0, 2, 3)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=757907208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87230754, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=867044761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 2.232, 0)
+material_override = SubResource("StandardMaterial3D_7dj16")
+mesh = SubResource("BoxMesh_v0tii")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=1983136116]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 2.232, 0)
+shape = SubResource("BoxShape3D_v0tii")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=130297343]
+
+[node name="StaminaBar" type="ProgressBar" parent="CanvasLayer" unique_id=1638590638]
+custom_minimum_size = Vector2(250, 30)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1132.0
+offset_top = -135.0
+offset_right = -882.0
+offset_bottom = -105.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_v0tii")
+value = 100.0

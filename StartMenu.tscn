@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dmjy2g2m6vwrv"]
+
+[ext_resource type="Script" uid="uid://cyl41d4hcvdul" path="res://start_menu.gd" id="1_d3352"]
+
+[node name="StartMenu" type="Control" unique_id=1351996204]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_d3352")
+metadata/_edit_horizontal_guides_ = [-53.0]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1895711820]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 673.0
+offset_right = 849.4661
+offset_bottom = 2117.6338
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.3232657, -0.45086956)
+color = Color(0.26573288, 0.19321588, 0.02008708, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1607902776]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 71.0
+offset_right = 773.00006
+offset_bottom = 143.0
+theme_override_font_sizes/font_size = 52
+text = "my the Parkour"
+
+[node name="Button" type="Button" parent="." unique_id=794152043]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 301.0
+offset_right = 719.0
+offset_bottom = 437.0
+theme_override_font_sizes/font_size = 24
+text = "Run!"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

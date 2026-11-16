@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" uid="uid://cyl41d4hcvdul" path="res://start_menu.gd" id="1_d3352"]
 
-[node name="StartMenu" type="Control" unique_id=1351996204]
+[node name="StartMenu" type="Control" unique_id=1551076272]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchor_right = 1.044
+anchor_bottom = 1.039
+offset_right = -1202.688
+offset_bottom = -673.27203
 script = ExtResource("1_d3352")
 metadata/_edit_horizontal_guides_ = [-53.0]
 
@@ -17,12 +18,12 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 673.0
-offset_right = 849.4661
-offset_bottom = 2117.6338
+offset_right = 877.3748
+offset_bottom = 2165.6711
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.3232657, -0.45086956)
-color = Color(0.26573288, 0.19321588, 0.02008708, 1)
+color = Color(0.3932181, 0.26413104, 1.4439226e-07, 1)
 
 [node name="Label" type="Label" parent="." unique_id=1607902776]
 layout_mode = 0

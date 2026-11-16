@@ -46,6 +46,9 @@ size = Vector3(9, 0.9, 9)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0tii"]
 bg_color = Color(0.8724578, 0.5950343, 0.063205525, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttto4"]
+bg_color = Color(0.7799821, 0, 0.1958662, 1)
+
 [node name="Node3D" type="Node3D" unique_id=1327071951]
 script = ExtResource("1_od4ev")
 
@@ -111,3 +114,45 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/fill = SubResource("StyleBoxFlat_v0tii")
 value = 100.0
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer" unique_id=505777143]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -707.0
+offset_top = -96.0
+offset_right = -457.0
+offset_bottom = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ttto4")
+min_value = 100.0
+value = 100.0
+
+[node name="DeathScreen" type="ColorRect" parent="CanvasLayer" unique_id=1054136569]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1152.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.47843137, 0.019607844, 0, 0.8)
+
+[node name="Label" type="Label" parent="CanvasLayer/DeathScreen" unique_id=135021956]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -421.0
+offset_top = -145.5
+offset_right = 421.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8089816, 0.13917497, 0, 1)
+theme_override_font_sizes/font_size = 99
+text = "my Ese Rule!!!!!!!!!!"

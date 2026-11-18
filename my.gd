@@ -16,11 +16,11 @@ extends CharacterBody3D
 
 # --- تنظیمات سلامتی و دمیج ---
 @export var max_health = 100.0
-@export var health_regen_rate = 5.0 # سرعت پر شدن جون در هر ثانیه
+@export var health_regen_rate = 4.0 # سرعت پر شدن جون در هر ثانیه
 @export var void_death_y = -20.0 # ارتفاعی که پایین‌تر از اون یعنی افتادیم توی وید
-@export var base_fall_height = 7.5 # سقوط از 10 متری شروع دمیج
-@export var fall_damage_step = 1.5 # هر 2 متر بیشتر
-@export var damage_per_step = 10.0 # مقدار دمیج هر مرحله (نیم قلب)
+@export var base_fall_height = 7.5 # سقوط از 7.5 متری شروع دمیج
+@export var fall_damage_step = 1.5 # هر 1.5 متر بیشتر
+@export var damage_per_step = 12.0 # مقدار دمیج هر مرحله (نیم قلب)
 
 # --- نودها ---
 @onready var cam_first_person = $G1

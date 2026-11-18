@@ -67,6 +67,15 @@ size = Vector3(6.2, 0.2, 5.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ttto4"]
 size = Vector3(6.2, 0.2, 5.2)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_81bgk"]
+albedo_texture = ExtResource("4_awcal")
+
+[sub_resource type="BoxMesh" id="BoxMesh_n32ao"]
+size = Vector3(9, 1.2, 2.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n32ao"]
+size = Vector3(9, 1.2, 2.4)
+
 [node name="Node3D" type="Node3D" unique_id=1327071951]
 script = ExtResource("1_od4ev")
 
@@ -163,9 +172,10 @@ theme_override_font_sizes/font_size = 99
 text = "my Ese Rule!!!!!!!!!!"
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=688466808]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 7.5, 9.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.330669, 7.5, 11.566806)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3" unique_id=1867548420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5474825)
 material_override = SubResource("StandardMaterial3D_awcal")
 mesh = SubResource("BoxMesh_ttto4")
 
@@ -191,3 +201,15 @@ mesh = SubResource("BoxMesh_376v8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=714394561]
 shape = SubResource("BoxShape3D_ttto4")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="." unique_id=1944830459]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 3.527, 4.263)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D4" unique_id=1418871386]
+transform = Transform3D(1, 0, 0, 0, 0.9598053, 0.2806667, 0, -0.2806667, 0.9598053, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_81bgk")
+mesh = SubResource("BoxMesh_n32ao")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4" unique_id=1009110703]
+transform = Transform3D(1, 0, 0, 0, 0.95958424, 0.2814213, 0, -0.2814213, 0.95958424, 0, 0, 0)
+shape = SubResource("BoxShape3D_n32ao")

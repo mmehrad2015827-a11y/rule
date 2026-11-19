@@ -15,6 +15,7 @@ extends CharacterBody3D
 @export var stamina_regen = 15.0
 @export var run_drain = 25.0
 @export var jump_drain = 20.0
+@export var Last_jump_drain = 30.0
 
 # --- تنظیمات سلامتی و دمیج ---
 @export var max_health = 100.0

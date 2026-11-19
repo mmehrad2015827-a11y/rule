@@ -76,6 +76,15 @@ size = Vector3(9, 1.2, 2.4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_n32ao"]
 size = Vector3(9, 1.2, 2.4)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l0juq"]
+albedo_texture = ExtResource("4_awcal")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ibiya"]
+size = Vector3(2, 2, 6.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qhktn"]
+size = Vector3(2, 2, 6.2)
+
 [node name="Node3D" type="Node3D" unique_id=1327071951]
 script = ExtResource("1_od4ev")
 
@@ -213,3 +222,15 @@ mesh = SubResource("BoxMesh_n32ao")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4" unique_id=1009110703]
 transform = Transform3D(1, 0, 0, 0, 0.95958424, 0.2814213, 0, -0.2814213, 0.95958424, 0, 0, 0)
 shape = SubResource("BoxShape3D_n32ao")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="." unique_id=2071410751]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6674862, 11.309104, 10.18189)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D6" unique_id=1351867160]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_l0juq")
+mesh = SubResource("BoxMesh_ibiya")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D6" unique_id=933480139]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_qhktn")

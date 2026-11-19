@@ -133,7 +133,7 @@ func _physics_process(delta):
 		"ui_left",
 		"ui_right",
 		"ui_up",
-        "ui_down"
+		"ui_down"
 	)
 
 	var is_moving = input_dir.length() > 0
@@ -164,12 +164,22 @@ func _physics_process(delta):
 
 	# --- سیستم پرش ---
 	if Input.is_action_just_pressed("ui_accept") and jumps_left > 0:
-		if not is_exhausted or jumps_left == max_jumps:
+
+		var is_last_jump = is_equal_approx(jumps_left, 0.5)
+
+		# تعیین هزینه انرژی پرش
+		var required_stamina = jump_drain
+
+		if is_last_jump:
+			required_stamina = Last_jump_drain
+
+		# فقط در صورت داشتن انرژی کافی اجازه پرش بده
+		if current_stamina >= required_stamina:
 
 			var current_jump = jump_velocity
 
 			# پرش آخر
-			if is_equal_approx(jumps_left, 0.5):
+			if is_last_jump:
 				current_jump = Last_jump_velocity
 
 			elif is_exhausted:
@@ -182,10 +192,10 @@ func _physics_process(delta):
 
 			jumps_left -= 1
 
-			current_stamina -= jump_drain
+			# مصرف انرژی متناسب با نوع پرش
+			current_stamina -= required_stamina
 
-			if current_stamina < 0:
-				current_stamina = 0
+			current_stamina = max(current_stamina, 0.0)
 
 	# --- حرکت بازیکن ---
 	var direction = (

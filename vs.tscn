@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cagjlermhim3r" path="res://vs.gd" id="1_od4ev"]
 [ext_resource type="Texture2D" uid="uid://cwjitol4wh3yx" path="res://my.jpg" id="2_od4ev"]
 [ext_resource type="Texture2D" uid="uid://bmn6lskgqqk0a" path="res://icon.svg" id="4_awcal"]
+[ext_resource type="Script" uid="uid://iet675svdl3n" path="res://animatable.gd" id="5_7dj16"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4xowi"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -17,11 +18,14 @@ background_mode = 2
 sky = SubResource("Sky_a202f")
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ri5ej"]
+albedo_texture = ExtResource("2_od4ev")
+
 [sub_resource type="BoxMesh" id="BoxMesh_8h6mr"]
-size = Vector3(65, 1, 65)
+size = Vector3(524, 1, 524)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_376v8"]
-size = Vector3(65, 1, 65)
+size = Vector3(524, 1, 524)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a202f"]
 albedo_texture = ExtResource("2_od4ev")
@@ -76,6 +80,8 @@ size = Vector3(9, 1.2, 2.4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_n32ao"]
 size = Vector3(9, 1.2, 2.4)
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v0tii"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l0juq"]
 albedo_texture = ExtResource("4_awcal")
 
@@ -84,6 +90,15 @@ size = Vector3(2, 2, 6.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qhktn"]
 size = Vector3(2, 2, 6.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ppv24"]
+albedo_texture = ExtResource("4_awcal")
+
+[sub_resource type="BoxMesh" id="BoxMesh_mvu80"]
+size = Vector3(15.5, 1, 6.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ibiya"]
+size = Vector3(15.5, 1, 6.2)
 
 [node name="Node3D" type="Node3D" unique_id=1327071951]
 script = ExtResource("1_od4ev")
@@ -98,6 +113,7 @@ shadow_enabled = true
 [node name="ground" type="StaticBody3D" parent="." unique_id=1522525554]
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="ground" unique_id=865619371]
+material_override = SubResource("StandardMaterial3D_ri5ej")
 mesh = SubResource("BoxMesh_8h6mr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ground" unique_id=542788571]
@@ -223,14 +239,27 @@ mesh = SubResource("BoxMesh_n32ao")
 transform = Transform3D(1, 0, 0, 0, 0.95958424, 0.2814213, 0, -0.2814213, 0.95958424, 0, 0, 0)
 shape = SubResource("BoxShape3D_n32ao")
 
-[node name="StaticBody3D6" type="StaticBody3D" parent="." unique_id=2071410751]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6674862, 11.309104, 10.18189)
+[node name="RotatingPlatform" type="AnimatableBody3D" parent="." unique_id=829057209]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, -1.667, 11.309, 10.182)
+physics_material_override = SubResource("PhysicsMaterial_v0tii")
+sync_to_physics = false
+script = ExtResource("5_7dj16")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D6" unique_id=1351867160]
-transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0, 0, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RotatingPlatform" unique_id=1351867160]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -0.00048589706, 0.0001039505, -0.00011062622)
 material_override = SubResource("StandardMaterial3D_l0juq")
 mesh = SubResource("BoxMesh_ibiya")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D6" unique_id=933480139]
-transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0, 0, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RotatingPlatform" unique_id=933480139]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -0.00048613548, 0.0001039505, -0.00011062622)
 shape = SubResource("BoxShape3D_qhktn")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="." unique_id=514716908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2, 11.309, 10.182)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D5" unique_id=1469625475]
+material_override = SubResource("StandardMaterial3D_ppv24")
+mesh = SubResource("BoxMesh_mvu80")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5" unique_id=1303536262]
+shape = SubResource("BoxShape3D_ibiya")

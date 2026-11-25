@@ -43,4 +43,11 @@ offset_bottom = 437.0
 theme_override_font_sizes/font_size = 24
 text = "Run!"
 
+[node name="Button2" type="Button" parent="." unique_id=1213634466]
+layout_mode = 0
+offset_right = 231.0
+offset_bottom = 71.0
+text = "Mod : Unknown"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

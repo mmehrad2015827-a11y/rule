@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cwjitol4wh3yx" path="res://my.jpg" id="2_od4ev"]
 [ext_resource type="Texture2D" uid="uid://bmn6lskgqqk0a" path="res://icon.svg" id="4_awcal"]
 [ext_resource type="Script" uid="uid://iet675svdl3n" path="res://animatable.gd" id="5_7dj16"]
+[ext_resource type="PackedScene" uid="uid://bcwcui6x5end2" path="res://pc_computer_-_sonic_frontiers_-_sonic.glb" id="6_caoqp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4xowi"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -100,7 +101,7 @@ size = Vector3(15.5, 1, 6.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ibiya"]
 size = Vector3(15.5, 1, 6.2)
 
-[node name="Node3D" type="Node3D" unique_id=1327071951]
+[node name="Node Rule" type="Node3D" unique_id=1327071951]
 script = ExtResource("1_od4ev")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=586409506]
@@ -263,3 +264,6 @@ mesh = SubResource("BoxMesh_mvu80")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5" unique_id=1303536262]
 shape = SubResource("BoxShape3D_ibiya")
+
+[node name="Sketchfab_Scene" parent="." unique_id=278284640 instance=ExtResource("6_caoqp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.272035, 0.7738989, 0)

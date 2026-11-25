@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cmyfwkets85tn"]
+
+[ext_resource type="PackedScene" uid="uid://bcwcui6x5end2" path="res://pc_computer_-_sonic_frontiers_-_sonic.glb" id="1_r57si"]
+
+[node name="Sketchfab_Scene" unique_id=278284640 instance=ExtResource("1_r57si")]

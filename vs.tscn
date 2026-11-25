@@ -5,7 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://cwjitol4wh3yx" path="res://my.jpg" id="2_od4ev"]
 [ext_resource type="Texture2D" uid="uid://bmn6lskgqqk0a" path="res://icon.svg" id="4_awcal"]
 [ext_resource type="Script" uid="uid://iet675svdl3n" path="res://animatable.gd" id="5_7dj16"]
-[ext_resource type="PackedScene" uid="uid://bcwcui6x5end2" path="res://pc_computer_-_sonic_frontiers_-_sonic.glb" id="6_caoqp"]
+[ext_resource type="PackedScene" uid="uid://cn8ok0s4qm1fu" path="res://node_3d.tscn" id="6_caoqp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ri5ej"]
+albedo_texture = ExtResource("2_od4ev")
+
+[sub_resource type="BoxMesh" id="BoxMesh_8h6mr"]
+size = Vector3(524, 1, 524)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_376v8"]
+size = Vector3(524, 1, 524)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4xowi"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -19,14 +28,7 @@ background_mode = 2
 sky = SubResource("Sky_a202f")
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ri5ej"]
-albedo_texture = ExtResource("2_od4ev")
-
-[sub_resource type="BoxMesh" id="BoxMesh_8h6mr"]
-size = Vector3(524, 1, 524)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_376v8"]
-size = Vector3(524, 1, 524)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0tii"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a202f"]
 albedo_texture = ExtResource("2_od4ev")
@@ -36,8 +38,6 @@ albedo_texture = ExtResource("2_od4ev")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_v0tii"]
 height = 1.8935547
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0tii"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0tii"]
 bg_color = Color(0.8724578, 0.5950343, 0.063205525, 1)
@@ -104,13 +104,6 @@ size = Vector3(15.5, 1, 6.2)
 [node name="Node Rule" type="Node3D" unique_id=1327071951]
 script = ExtResource("1_od4ev")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=586409506]
-environment = SubResource("Environment_noarx")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=553009489]
-transform = Transform3D(0.9033353, -0.105946556, 0.41564488, 0, 0.9690157, 0.24699901, -0.42893514, -0.22312292, 0.87534606, 0, 0, 0)
-shadow_enabled = true
-
 [node name="ground" type="StaticBody3D" parent="." unique_id=1522525554]
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="ground" unique_id=865619371]
@@ -120,17 +113,24 @@ mesh = SubResource("BoxMesh_8h6mr")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ground" unique_id=542788571]
 shape = SubResource("BoxShape3D_376v8")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=553009489]
+transform = Transform3D(0.90333533, -0.105946556, 0.4156449, 0, 0.9690157, 0.24699901, -0.42893517, -0.22312292, 0.8753461, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=586409506]
+environment = SubResource("Environment_noarx")
+
 [node name="my" type="CharacterBody3D" parent="." unique_id=839634732]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007276535, 1.6330503, -0.01709342)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007, 1.633, 0)
 script = ExtResource("1_dv76a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="my" unique_id=1456261830]
+shape = SubResource("CapsuleShape3D_v0tii")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="my" unique_id=1606001919]
 material_override = SubResource("StandardMaterial3D_a202f")
 material_overlay = SubResource("StandardMaterial3D_noarx")
 mesh = SubResource("CapsuleMesh_v0tii")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="my" unique_id=1456261830]
-shape = SubResource("CapsuleShape3D_v0tii")
 
 [node name="G1" type="Camera3D" parent="my" unique_id=511020823]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39161742, 0)
@@ -265,5 +265,5 @@ mesh = SubResource("BoxMesh_mvu80")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5" unique_id=1303536262]
 shape = SubResource("BoxShape3D_ibiya")
 
-[node name="Sketchfab_Scene" parent="." unique_id=278284640 instance=ExtResource("6_caoqp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.272035, 0.7738989, 0)
+[node name="Yeu" parent="." unique_id=416604234 instance=ExtResource("6_caoqp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2259576, 0)
